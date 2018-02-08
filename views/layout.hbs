@@ -1,22 +1,104 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-   <title>{{title}}</title>
-   <link rel='stylesheet' href='/stylesheets/font-awesome.min.css' />
-   <link rel='stylesheet' href='/stylesheets/materialize.min.css' />
-   <link rel='stylesheet' href='/stylesheets/style.css' />
+	<title>{{title}}</title>
+	<link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+	/>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+	/>
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<!--Import materialize.css-->
+	<link rel='stylesheet' href='/stylesheets/font-awesome.min.css' />
+	<link rel='stylesheet' href='/stylesheets/materialize.min.css' />
+	<link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
-<body>
-   {{{body}}}
-</body>
-<div class="card">
-   <div class="card-content">
-      <div class="card-title">
-         Materialize Works!
-      </div>
-   </div>
-</div>
-<script src="bundle.js"></script>
+<body id="top">
+	<nav class="transparent z-depth-0">
+		<div class="nav-wrapper black">
+			{{!--
+			<a href="/">
+				<i class="material-icons">Home</i>
+			</a> --}}
+			<a href="#" data-activates="mobile-demo" class="button-collapse">
+				<i class="material-icons">menu</i>
+			</a>
+			<ul class="right hide-on-med-and-down">
+				<li>
+					<a href="/">Home</a>
+				</li>
+				<li>
+					<a href="/about">About</a>
+				</li>
+				<li>
+					<a href="/portfolio">Portfolio</a>
+				</li>
+				<li>
+					<a href="/contact">Contact</a>
+				</li>
+			</ul>
+			<ul class="side-nav" id="mobile-demo">
+				<li>
+					<a href="/">Home</a>
+				</li>
+				<li>
+					<a href="/about">About</a>
+				</li>
+				<li>
+					<a href="/portfolio">Portfolio</a>
+				</li>
+				<li>
+					<a href="/contact">Contact</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
 
+	{{{body}}}
+
+	<footer class="page-footer blue-grey darken-4">
+		<div class="container">
+			<div class="row">
+				<div class="col l4 s12">
+					<h5 class="white-text">Footer Content</h5>
+					<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+				</div>
+				<div class="col l2 offset-l1 s12">
+					<img class="logo-footer" src="assets/logo-min.png" alt="">
+				</div>
+				<div class="col l3 offset-l2 s12">
+					<h5 class="white-text">Sitemap</h5>
+					<ul>
+						<li>
+							<a class="grey-text text-lighten-3" href="/">Home</a>
+						</li>
+						<li>
+							<a class="grey-text text-lighten-3" href="/about">About</a>
+						</li>
+						<li>
+							<a class="grey-text text-lighten-3" href="/portfolio">Portfolio</a>
+						</li>
+						<li>
+							<a class="grey-text text-lighten-3" href="/contact">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright black">
+			<div class="container">
+				<span class="copyright"></span>
+				<span class="white-text">Email</span>
+			</div>
+		</div>
+	</footer>
+</body>
+<script src="bundle.js"></script>
+<script>
+	// ==== FOOTER DATE ====
+	const date = new Date();
+	$("span.copyright").text(`© ${date.getFullYear()} by VR the Future`);
+</script>
 </html>

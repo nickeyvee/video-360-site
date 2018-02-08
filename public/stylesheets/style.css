@@ -1,8 +1,38 @@
-body {
-  padding: 50px;
+body, html {
+	padding: 0;
+	margin: 0;
+	background: #E6ECF0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+footer {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+}
+
+footer .logo-footer {
+	display: block;
+	width: 100px;
+}
+
+.page-wrapper {
+	display: block;
+	height: 100%;
+	widows: 100%;
+	opacity: 0;
+}
+
+@media(min-width: 600px) {
+	#nav_mobile {
+		 display: none;
+	}
+	nav .nav-wrapper {
+		 padding: 0 25px 0 25px;
+	}
 }
