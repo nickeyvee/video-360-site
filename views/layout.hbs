@@ -18,10 +18,6 @@
 <body id="top">
 	<nav class="transparent z-depth-0">
 		<div class="nav-wrapper black">
-			{{!--
-			<a href="/">
-				<i class="material-icons">Home</i>
-			</a> --}}
 			<a href="#" data-activates="mobile-demo" class="button-collapse">
 				<i class="material-icons">menu</i>
 			</a>
@@ -62,26 +58,44 @@
 		<div class="container">
 			<div class="row">
 				<div class="col l4 s12">
-					<h5 class="white-text">Footer Content</h5>
-					<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+					<h5 class="white-text">Reach out to us</h5>
+					<ul>
+						<li>
+							<a class="email" href="mailto:VRtheFutureFilms@gmail.com">VRtheFutureFilms@gmail.com</a>
+						</li>
+						<li>
+							<a href="" id="facebook" target="_blank" class="social-link">
+								<i class="fa fa-facebook"></i>
+							</a>
+							<a href="" id="twitter" target="_blank" class="social-link">
+								<i class="fa fa-twitter"></i>
+							</a>
+							<a href="" id="youtube" target="_blank" class="social-link">
+								<i class="fa fa-youtube"></i>
+							</a>
+							<a href="" id="instagram" target="_blank" class="social-link">
+								<i class="fa fa-instagram"></i>
+							</a>
+						</li>
+					</ul>
 				</div>
 				<div class="col l2 offset-l1 s12">
 					<img class="logo-footer" src="assets/logo-min.png" alt="">
 				</div>
 				<div class="col l3 offset-l2 s12">
-					<h5 class="white-text">Sitemap</h5>
+					<h5 class="white-text">Quick Links</h5>
 					<ul>
 						<li>
-							<a class="grey-text text-lighten-3" href="/">Home</a>
+							<a href="/">Home</a>
 						</li>
 						<li>
-							<a class="grey-text text-lighten-3" href="/about">About</a>
+							<a href="/about">About</a>
 						</li>
 						<li>
-							<a class="grey-text text-lighten-3" href="/portfolio">Portfolio</a>
+							<a href="/portfolio">Portfolio</a>
 						</li>
 						<li>
-							<a class="grey-text text-lighten-3" href="/contact">Contact</a>
+							<a href="/contact">Contact</a>
 						</li>
 					</ul>
 				</div>
@@ -101,4 +115,5 @@
 	const date = new Date();
 	$("span.copyright").text(`© ${date.getFullYear()} by VR the Future`);
 </script>
+
 </html>
