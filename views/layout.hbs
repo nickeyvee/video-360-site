@@ -10,17 +10,31 @@
 	<!--Import Google Icon Font-->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 	<!--Import materialize.css-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!--Tell the browser that this site is optimized for mobile, VERY IMPORTANT-->
 	<link rel='stylesheet' href='/stylesheets/font-awesome.min.css' />
 	<link rel='stylesheet' href='/stylesheets/materialize.min.css' />
 	<link rel='stylesheet' href='/stylesheets/style.css' />
+	<link rel='stylesheet' href='/stylesheets/hamburger.css' />
+	<link href="/fonts/fontawesome-webfont.ttf">
+	<link href="/fonts/fontawesome-webfont.woff">
+	<link href="/fonts/fontawesome-webfont.woff2">
 </head>
 
 <body id="top">
 	<nav class="transparent z-depth-0">
 		<div class="nav-wrapper black">
 			<a href="#" data-activates="mobile-demo" class="button-collapse">
-				<i class="material-icons">menu</i>
+				{{!--
+				<i class="material-icons">menu</i> --}}
+				<div id="nav-icon4">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
 			</a>
+
+			<!-- ==== DESKTOP MENU ==== -->
 			<ul class="right hide-on-med-and-down">
 				<li>
 					<a href="/">Home</a>
@@ -29,12 +43,28 @@
 					<a href="/about">About</a>
 				</li>
 				<li>
-					<a href="/portfolio">Portfolio</a>
+					<li>
+						<a class="dropdown-button" href="#!" data-activates="dropdown1">Portfolio
+							<i class="material-icons right">arrow_drop_down</i>
+						</a>
+					</li>
 				</li>
 				<li>
 					<a href="/contact">Contact</a>
 				</li>
 			</ul>
+
+			<!-- Dropdown Structure -->
+			<ul id="dropdown1" class="dropdown-content">
+				<li>
+					<a class="gold-accent" href="/360-video">360 Video</a>
+				</li>
+				<li>
+					<a class="gold-accent" href="/virtual-tours">Virtual Tours</a>
+				</li>
+			</ul>
+
+			<!-- ==== MOBILE MENU ==== -->
 			<ul class="side-nav" id="mobile-demo">
 				<li>
 					<a href="/">Home</a>
@@ -42,17 +72,36 @@
 				<li>
 					<a href="/about">About</a>
 				</li>
-				<li>
-					<a href="/portfolio">Portfolio</a>
+				<li class="">
+					<ul class="collapsible collapsible-accordion">
+						<li>
+							<a class="collapsible-header" style="padding: 0 0 0 32px">Portfolio</a>
+							<div class="collapsible-body">
+								<ul>
+									<li>
+										<a class="gold-accent" href="/360-video">360 Video</a>
+									</li>
+									<li>
+										<a class="gold-accent" href="/virtual-tours">Virtual Tours</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
 				</li>
 				<li>
 					<a href="/contact">Contact</a>
 				</li>
 			</ul>
+
 		</div>
 	</nav>
 
-	{{{body}}}
+	<div class="content">
+		<div class="content-inside">
+			{{{body}}}
+		</div>
+	</div>
 
 	<footer class="page-footer blue-grey darken-4">
 		<div class="container">
@@ -92,7 +141,10 @@
 							<a href="/about">About</a>
 						</li>
 						<li>
-							<a href="/portfolio">Portfolio</a>
+							<a href="/360-video">360 Video</a>
+						</li>
+						<li>
+							<a href="/virtual-tours">Virtual Tours</a>
 						</li>
 						<li>
 							<a href="/contact">Contact</a>

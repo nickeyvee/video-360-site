@@ -5,8 +5,6 @@ const hammer = require('hammerjs');
 
 require('materialize-css');
 
-console.log('bundle.js');
-
 $(document).ready(function () {
 
 	// ==== DOM SELECTORS (jQuery) ====
@@ -32,11 +30,87 @@ $(document).ready(function () {
 	$('.social-link').on('mouseenter', el => {
 		console.log(`#${el.target.id} i`);
 		$(`#${el.target.id} i`).addClass(`${el.target.id}`);
-		$(`a#${el.target.id}`).addClass(`${el.target.id}-border`);		
+		$(`a#${el.target.id}`).addClass(`${el.target.id}-border`);
 	});
 
 	$('.social-link').on('mouseleave', el => {
 		$(`#${el.target.id} i`).removeClass(`${el.target.id}`);
-		$(`a#${el.target.id}`).removeClass(`${el.target.id}-border`);		
+		$(`a#${el.target.id}`).removeClass(`${el.target.id}-border`);
 	});
+
+	// ==== HAMBURGER MENU ====
+
+	$('.button-collapse').sideNav({
+		menuWidth: 200, // Default is 300
+		edge: 'right', // Choose the horizontal origin
+		closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+		draggable: true, // Choose whether you can drag to open on touch screens,
+		onOpen: function (el) { /* Do Stuff*/
+			$('#nav-icon4').addClass('open');
+		}, // A function to be called when sideNav is opened
+		onClose: function (el) { /* Do Stuff*/
+			$('#nav-icon4').removeClass('open');
+		}, // A function to be called when sideNav is closed
+	});
+
+
+	// ==== CONTACT FORM LOGIC ====
+	const submit = $('button[type="submit"]');
+
+	submit.click(function (el) {
+		$(submit).addClass('disabled');
+
+		const form = $('form input');
+
+		for (let input of form) {
+			console.log(input);
+			if (input.value.length === 0) {
+				el.preventDefault();
+				$(input).addClass('invalid');
+				Materialize.toast(`${input.name} is required`, 3000);
+			}
+		}
+
+		const data = form.map((i, input) => input.value);
+
+		setTimeout(function () {
+			$(submit).removeClass('disabled');
+		}, 3000);
+
+		const payload = {
+			fname: data[0],
+			lname: data[1],
+			subject: data[2],
+			message: data[3]
+		}
+		el.preventDefault();
+		$.ajax({
+			type: "POST",
+			url: `${window.location.href}/submission`,
+			dataType: "json",
+			data: payload,
+			success: function (msg) {
+				Materialize.toast(msg.success, 1500);
+
+				setTimeout(function () {
+					window.location.href = window.location.origin;
+				}, 2000)
+			},
+			error: function (msg) {
+				console.log(msg.error);
+				Materialize.toast(msg.error, 3000);
+			}
+		})
+	});
+
+	// ==== INITALIZE CAROUSEL ====
+	$('.carousel').carousel({ fullWidth: true });
+
+	$('.toggle-carousel.left').click(function () {
+		$('.carousel').carousel('prev');
+	})
+
+	$('.toggle-carousel.right').click(function () {
+		$('.carousel').carousel('next');
+	})
 });

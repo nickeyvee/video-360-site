@@ -10,8 +10,12 @@ router.get('/about', function(req, res, next) {
   res.render('about');
 });
 
-router.get('/portfolio', function(req, res, next) {
-  res.render('portfolio');
+router.get('/360-video', function(req, res, next) {
+  res.render('360-video');
+});
+
+router.get('/virtual-tours', function(req, res, next) {
+  res.render('virtual-tours');
 });
 
 router.get('/contact', function(req, res, next) {
