@@ -113,4 +113,30 @@ $(document).ready(function () {
 	$('.toggle-carousel.right').click(function () {
 		$('.carousel').carousel('next');
 	})
+
+
+	// ==== PARALAX SCROLLING EFFECT ====
+
+	function parallax() {
+		let scroll = $(window).scrollTop();
+		let screenHeight = $(window).height();
+
+		$('.parallax-custom-img').each(function () {
+			let offset = $(this).offset().top;
+			let distanceFromBottom = offset - scroll - screenHeight
+
+			if (offset > screenHeight && offset) {
+				$(this).css('background-position', `center ${((distanceFromBottom) * 0.4)}px`);
+			} else {
+				$(this).css('background-position', `center ${((-scroll) * 0.4)}px`);
+			}
+		})
+	}
+
+
+	$(window).scroll(function () {
+		parallax();
+	});
+
+	// ...
 });
