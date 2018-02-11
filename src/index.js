@@ -1,11 +1,10 @@
-"use strict";
+document.addEventListener("DOMContentLoaded", function () {
 
-const $ = require('jquery');
-const hammer = require('hammerjs');
+	const $ = require('jquery');
+	const hammer = require('hammerjs');
+	const Blazy = require('blazy');
 
-require('materialize-css');
-
-$(document).ready(function () {
+	require('materialize-css');
 
 	// ==== DOM SELECTORS (jQuery) ====
 	const home = $('#home');
@@ -16,8 +15,10 @@ $(document).ready(function () {
 	const pages = $('.page-wrapper');
 	// ...
 
+	// ==== LAZYLOAD IMAGES ====
+	const bLazy = new Blazy();
 
-	// ==== FADING ANIMATION FOR PAGES ====
+	// ==== FADING ANIMATIONS ====
 	pages.animate({ opacity: 1 });
 
 	// ==== MATERIALIZE HAMBURGER MENU ====
@@ -133,10 +134,28 @@ $(document).ready(function () {
 		})
 	}
 
-
 	$(window).scroll(function () {
 		parallax();
 	});
 
+	// ==== FOOTER DATE ====
+	const date = new Date();
+	$('span.copyright').text(`© ${date.getFullYear()} by VR the Future`);
+
+
+	// ==== FADEIN IFRAMES ====
+	$(window).scroll(function () {
+		/* Check the location of each desired element */
+		$('.video-lazy').each(function (i) {
+
+			var top_of_object = $(this).position().top - 25;
+			var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+			/* If the object is completely visible in the window, fade it it */
+			if (bottom_of_window > top_of_object) {
+				$(this).css({ 'opacity': '1', 'animation': 'fadein-right 1s' });
+			}
+		});
+	});
 	// ...
 });
