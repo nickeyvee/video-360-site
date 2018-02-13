@@ -23422,6 +23422,19 @@ document.addEventListener("DOMContentLoaded", function () {
 	const pages = $('.page-wrapper');
 	// ...
 
+	// ==== CONDITIONAL STYLES ====
+
+	$(window).bind('load', function () { // when page has finished loading
+		// console.log('done loading');
+		if (window.location.pathname === "/virtual-tours") {
+			$('.carousel-fixed-item.loader').addClass('hidden');
+		}
+	})
+
+	if (window.location.pathname !== "/") {
+		$('div.nav-wrapper').addClass('blue-grey darken-4');
+	}
+
 	// ==== LAZYLOAD IMAGES ====
 	const bLazy = new Blazy();
 
@@ -23555,15 +23568,31 @@ document.addEventListener("DOMContentLoaded", function () {
 		/* Check the location of each desired element */
 		$('.video-lazy').each(function (i) {
 
-			var top_of_object = $(this).position().top - 25;
+			var top_of_object = $(this).position().top;
 			var bottom_of_window = $(window).scrollTop() + $(window).height();
 
-			/* If the object is completely visible in the window, fade it it */
+			/* If the object is completely visible in the window, fade it in */
 			if (bottom_of_window > top_of_object) {
-				$(this).css({ 'opacity': '1', 'animation': 'fadein-right 1s' });
+				$(this).css({ 'opacity': '1', 'animation': 'fadein 1s' });
 			}
 		});
 	});
+
+	// ==== FADEIN IFRAMES ====
+	$(window).scroll(function () {
+		/* Check the location of each desired element */
+
+		var top_of_object = $('#index-contact').position().top;
+		var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+		/* If the object is completely visible in the window, fade it in */
+		if (bottom_of_window > top_of_object) {
+			console.log('true');
+			$('#index-contact h2').css({ 'opacity': '1', 'animation': 'fadein-right 0.6s' });
+			$('#index-contact p, #index-contact a').css({ 'opacity': '1', 'animation': 'fadein-right 1.2s' });			
+		}
+	});
+
 	// ...
 });
 },{"blazy":1,"hammerjs":2,"jquery":3,"materialize-css":4}]},{},[5]);
