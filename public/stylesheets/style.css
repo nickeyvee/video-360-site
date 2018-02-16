@@ -289,9 +289,9 @@ footer .social-link i {
 		margin: 15px;
 	}
 
-	.parallax-content {
+	/* .parallax-content {
 		top: 0;
-	}
+	} */
 
 	nav .nav-wrapper {
 		 padding: 0 25px 0 25px;
@@ -359,7 +359,7 @@ footer .social-link i {
 	position: absolute;
 	text-align: center;
 	bottom: 0;
-	/* top: 0; */
+	top: 0;
 }
 
 #parallax_img_1 {
@@ -548,5 +548,4 @@ img.logo-header {
 	margin-top: -36px;
 	position: absolute;
 	background: url("//i.imgur.com/TxzC70f.png") no-repeat;
-	cursor: pointer;
-}
+	cursor: point
