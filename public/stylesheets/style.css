@@ -74,8 +74,17 @@ p {
 h1 {
 	font-weight: 600;
 	font-size: 4.2rem;
+	font-family: 'Source Sans Pro';
 	/* font-family: 'Alegreya Sans SC'; */
 	animation: fadein-right 0.6s;
+}
+
+.logo-subtitle {
+	font-family: 'Source Sans Pro';
+	font-weight: 500;
+	letter-spacing: 6px;
+	font-size: 28px;
+	margin: 0;
 }
 
 .hidden {
@@ -84,6 +93,10 @@ h1 {
 
 .disabled {
 	pointer-events: none;
+}
+
+.light-grey {
+	background: #E6ECF0 !important;
 }
 
 .gold-solid {
@@ -309,6 +322,10 @@ footer .social-link i {
 	top: 0;
 }
 
+.nav-wrapper a {
+	font-size: 20px;
+}
+
 .icon-block {
 	padding: 0 15px;
 }
@@ -394,7 +411,7 @@ img.logo-header {
 
 .widescreen {
 	width: 100% !important;
-	transition: 0.3s;
+	transition: all 0.3s ease-in;
 }
 
 .video-media-wrapper.video-lazy {
@@ -479,18 +496,18 @@ img.logo-header {
 
 /* ==== GOOGLE MAPS API ELEMENTS ==== */
 
-.gmaps-player {
+.gmaps-viewer {
 	position: relative;
 	padding-bottom: 56.23%;
 	/* Use 75% for 4:3 videos */
-	height: 0;
+	height: 100%;
 	overflow: hidden;
-	max-width: 100%;
+	width: 100%;
 	/* background: #000; */
 	margin: 10px 0 10px 0;
 }
 
-.gmaps-player iframe {
+.gmaps-viewer iframe {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -500,7 +517,7 @@ img.logo-header {
 	background: transparent;
 }
 
-.gmaps-player img {
+.gmaps-viewer img {
 	bottom: 0;
 	display: block;
 	left: 0;
@@ -518,11 +535,11 @@ img.logo-header {
 	transition: .4s all;
 }
 
-.gmaps-player img:hover {
+.gmaps-viewer img:hover {
 	-webkit-filter: brightness(75%);
 }
 
-.gmaps-player .play {
+.gmaps-viewer .play {
 	height: 72px;
 	width: 72px;
 	left: 50%;
